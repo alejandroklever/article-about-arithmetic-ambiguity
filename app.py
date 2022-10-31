@@ -193,7 +193,9 @@ mas fáciles de escribir. Aún así el resultado de la expresión `e` es 1, y el
 
 col1, col2 = st.columns(2)
 s = col1.text_input(
-    "Introduce una expresión", value="8 / 2 (2 + 2)", key="symboless grammar operation 1"
+    "Introduce una expresión",
+    value="8 / 2 (2 + 2)",
+    key="symboless grammar operation 1",
 )
 
 slg_result = slg.parser(slg.lexer(s))
@@ -208,7 +210,9 @@ else:
 
 col1, col2 = st.columns(2)
 s = col1.text_input(
-    "Introduce una expresión", value="8 / 2 * (2 + 2)", key="symboless grammar operation 2"
+    "Introduce una expresión",
+    value="8 / 2 * (2 + 2)",
+    key="symboless grammar operation 2",
 )
 
 slg.lexer.column = 0
@@ -255,4 +259,3 @@ este texto:
 Espero que esto les haya ayudado a entender que como un equipo de cómputo resuelve este tipo
 de ambigüedades.
 """
-
