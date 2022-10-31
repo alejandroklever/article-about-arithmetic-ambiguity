@@ -1,7 +1,7 @@
 import streamlit as st
-import left_associative_grammar as lag
-import right_associative_grammar as rag
-import symbol_less_grammar as slg
+import grammars.left_associative_grammar as lag
+import grammars.right_associative_grammar as rag
+import grammars.symbol_less_grammar as slg
 
 DEFAULT_EXPR = "8 / 2 * (2 + 2)"
 

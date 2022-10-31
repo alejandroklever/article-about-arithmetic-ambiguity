@@ -1,4 +1,4 @@
-import astnodes as ast
+import grammars.astnodes as ast
 
 from pyjapt import Grammar
 
@@ -17,12 +17,12 @@ def whitespace(_lexer):
     _lexer.position += len(_lexer.token.lex)
 
 
-expr %= "term + expr", lambda s: ast.Add(s[1], s[3])
-expr %= "term - expr", lambda s: ast.Sub(s[1], s[3])
+expr %= "expr + term", lambda s: ast.Add(s[1], s[3])
+expr %= "expr - term", lambda s: ast.Sub(s[1], s[3])
 expr %= "term", lambda s: s[1]
 
-term %= "fact * term", lambda s: ast.Mult(s[1], s[3])
-term %= "fact / term", lambda s: ast.Div(s[1], s[3])
+term %= "term * fact", lambda s: ast.Mult(s[1], s[3])
+term %= "term / fact", lambda s: ast.Div(s[1], s[3])
 term %= "fact", lambda s: s[1]
 
 fact %= "( expr )", lambda s: s[2]

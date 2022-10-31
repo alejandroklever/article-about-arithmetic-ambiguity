@@ -1,4 +1,4 @@
-import astnodes as ast
+import grammars.astnodes as ast
 
 from pyjapt import Grammar
 
