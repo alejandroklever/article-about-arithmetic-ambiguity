@@ -5,14 +5,21 @@ import grammars.right_associative_grammar as rag
 import grammars.symbol_less_grammar as slg
 
 
-DEFAULT_EXPR = "8 / 2 * (2 + 2)"
+E = "8 / 2 (2 + 2)"
+S = "8 / 2 * (2 + 2)"
 
-st.title("El ambiguo caso de ***8 / 2(2 + 2)***")
+st.title("El ambiguo caso de `8/2(2+2)`")
 st.subheader("Un análisis desde el punto vista sintáctico")
-st.caption("Por Alejandro Klever Clemente")
+st.caption("""
+Por Alejandro Klever Clemente
+[![Twitter Follow](https://img.shields.io/twitter/follow/aklever4197?label=Follow%20on%20Twitter&color=blue&style=flat&logo=twitter)](https://twitter.com/aklever4197)
+[![GitHub followers](https://img.shields.io/github/followers/alejandroklever?label=Follow%20on%20Github&style=flat&color=lightgray&logo=github)](https://github.com/alejandroklever)
+"""
+)
 
 """
 #### Introducción
+
 En este pequeño artículo me gustaría agregar un poco de luz 
 desde el punto de vista de programación a la ambigüedad del resultado
 de la expresión aritmética `e = 8 / 2 (2 + 2)`.
@@ -93,7 +100,7 @@ tiene mayor prioridad que un factor.
 
 col1, col2 = st.columns(2)
 s = col1.text_input(
-    "Introduce una expresión", value=DEFAULT_EXPR, key="left associative"
+    "Introduce una expresión", value=S, key="left associative"
 )
 
 lag_result = lag.parser(lag.lexer(s))
@@ -130,7 +137,7 @@ operaciones, poniendo al de menor nivel a la izquierda del operador.
 
 col1, col2 = st.columns(2)
 s = col1.text_input(
-    "Introduce una expresión", value=DEFAULT_EXPR, key="right associative"
+    "Introduce una expresión", value=S, key="right associative"
 )
 
 rag_result = rag.parser(rag.lexer(s))
@@ -198,7 +205,7 @@ mas fáciles de escribir. Aún así el resultado de la expresión `e` es 1, y el
 col1, col2 = st.columns(2)
 s = col1.text_input(
     "Introduce una expresión",
-    value="8 / 2 (2 + 2)",
+    value=E,
     key="symboless grammar operation 1",
 )
 
@@ -215,7 +222,7 @@ else:
 col1, col2 = st.columns(2)
 s = col1.text_input(
     "Introduce una expresión",
-    value="8 / 2 * (2 + 2)",
+    value=S,
     key="symboless grammar operation 2",
 )
 
@@ -245,13 +252,14 @@ mayor prioridad operacional es porque en el caso contrario sencillamente tendrí
 una gramática que no es capaz de entender ni generar todas las cadenas del lenguaje
 de expresiones aritmeticas con omisión de símbolos.
 
-Esto no es algo raro. Lenguajes de programación de proposito cientifico como Julia aceptan esta
-notacion y lo resuelven dandole mas prioridad al no expresiones con coeficientes que a la division o
-multiplicacion literal. Para mas info sobre como Julia hace esto puede ir a la [Documentación Oficial](https://docs.julialang.org/en/v1/manual/integers-and-floating-point-numbers/#man-numeric-literal-coefficients). 
+Esto no es algo raro. Lenguajes de programación de propósito cientifico como Julia aceptan esta
+notación y lo resuelven dándole más prioridad al no expresiones con coeficientes que a la división o
+multiplicación literal. Para más info sobre como Julia hace esto puede ir a la [Documentación Oficial](https://docs.julialang.org/en/v1/manual/integers-and-floating-point-numbers/#man-numeric-literal-coefficients). 
 """
 
 """
 ### Conclusiones
+
 He intentado resumir en este artículo todo una introducción muy breve y algo informal sobre es
 el análisis de los lenguajes computables con el fin de arrojar luz a los 2 planteamientos que insitaron
 este texto:
@@ -262,4 +270,15 @@ este texto:
 
 Espero que esto les haya ayudado a entender que como un equipo de cómputo resuelve este tipo
 de ambigüedades.
+"""
+
+"""
+### Links
+
+Este artículo fue escrito y publicado gracias a [Streamlit](https://streamlit.io/),
+una herramienta que nos permite escribir aplicaciones webs con Python y desplegarlas en la nube.
+
+El código fuente de este artículo puede ser encontrado en [![Star the Repo](https://img.shields.io/github/stars/alejandroklever/article-about-arithmetic-ambiguity?label=Star%20the%20Repo&style=flat&color=gray&logo=github)](https://github.com/alejandroklever/article-about-arithmetic-ambiguity)
+
+Para la creación de las gramáticas fue usada la biblioteca de Python [![PyJapt Repo](https://img.shields.io/github/stars/alejandroklever/PyJapt?label=pyjapt&style=flat&color=blue&logo=python)](https://github.com/alejandroklever/PyJapt)
 """
