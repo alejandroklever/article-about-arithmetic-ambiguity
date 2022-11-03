@@ -32,10 +32,10 @@ resolución de operaciones de igual precedencia en el orden de aparición.
 
 Lo primero es analizar desde el punto de vista computacional donde esta el error.
 Lo curioso es que este no es producto de una mala programación interna del circuito
-lógico que realiza las operaciones a mas bajo nivel, y tampoco a la hora de colocar
+lógico que realiza las operaciones a más bajo nivel, y tampoco a la hora de colocar
 el orden de las instrucciones en el cpu, sino que es producto de un proceso
 mucho mas superficial y es la traducción de la expresión `e`, que no es más que
-una cadena de texto, instrucciones que pueda entender un procesador.
+una cadena de texto, a instrucciones que pueda entender un procesador.
 
 Para este análisis usaremos primero una versión menos ambigua de la expresión original a 
 la que llamaremos `s = 8 / 2 * (2 + 2)`.
@@ -69,18 +69,18 @@ a la cual pertenece nuestra cadena de ejemplo `s`.
     expr
 
 Y ahora es donde comienza la parte que hara que nuestra cadena `s` sea evaluada
-como 16. Hagamos el ejemplo de 16 primero.
+como 16.
 
 ##### Definamos las producciones:
     # Una expresión se define como la suma o resta
-    # entre una expresión y un termino o 
-    # un termino en solitario de la siguiente forma
+    # entre una expresión y un término o 
+    # un término en solitario de la siguiente forma
     expr -> expr + term
     expr -> expr - term
     expr -> term
 
-    # Un termino se define como la multiplicacion o division
-    # entre un termino y un factor o
+    # Un término se define como la multiplicacion o division
+    # entre un término y un factor o
     # un factor en solitario de la siguiente forma
     term -> term * fact
     term -> term / fact
@@ -115,7 +115,7 @@ else:
 """
 ### Caso `s = 1`
 
-Para este caso mantendremos tanto los terminales, no terminales y simbolo inical
+Para este caso mantendremos tanto los terminales, no terminales y símbolo inical
 de la gramática anterior pero haremos un ligero cambio en las producciones 
 (los terminales, los no terminales y el símbolo inicial seran los mismos)
 
@@ -131,7 +131,7 @@ de la gramática anterior pero haremos un ligero cambio en las producciones
     fact -> ( expr )
     fact -> number
 
-Como podemos observar el unico cambio que hicimos fue intercambiar el orden de los no terminales en las 
+Como podemos observar el único cambio que hicimos fue intercambiar el orden de los no terminales en las 
 operaciones, poniendo al de menor nivel a la izquierda del operador. 
 """
 
@@ -177,7 +177,7 @@ del lenguaje de expresiones aritmeticas.
 Una vez analizado como un simple cambio en la gramática puede afectar a como se ejecutan
 a la resolucion de la misma, quiero dejar una cosa en clara: Si eres porgramador, por favor, usa la primera gramática.
 Por otro lado no podemos olvidar que aquí estabamos trabajando con una expresión que usa todos los símbolos aritmeticos,
-¿Que pasaría si a nuestro lenguaje le damos la posibilidad de operar omitiendo el simbolo `*`?
+¿Que pasaría si a nuestro lenguaje le damos la posibilidad de operar omitiendo el símbolo `*`?
 Primeramente debemos cambiar la gramática con la que venimos para poder analizar expresiones del tipo `2(2 + 2)`, puesto a que nuestro lenguaje cambió...
 
 Para interpretar el nuevo lenguaje agregaremos el no terminal `conj` y haremos los siguientes cambios en las
