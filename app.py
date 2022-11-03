@@ -261,7 +261,7 @@ multiplicación literal. Para más info sobre como Julia hace esto puede ir a la
 ### Conclusiones
 
 He intentado resumir en este artículo todo una introducción muy breve y algo informal sobre es
-el análisis de los lenguajes computables con el fin de arrojar luz a los 2 planteamientos que insitaron
+el análisis de los lenguajes computables con el fin de arrojar luz a los 2 planteamientos que incitaron
 este texto:
 
 - Lo que a priori parece ser un error quizas sea el resultado de un convenio acordado porque es la mejor forma de hacer algo o bien porque es la unica forma.
