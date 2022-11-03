@@ -31,7 +31,7 @@ resolución de operaciones de igual precedencia en el orden de aparición.
 ¿Pero, por qué es esto realmente un error?
 
 Lo primero es analizar desde el punto de vista computacional donde esta el error.
-Lo curioso es que este no es producto de una mala programación interna del circuito
+Curiosamente es que este no es producto de una mala programación interna del circuito
 lógico que realiza las operaciones a más bajo nivel, y tampoco a la hora de colocar
 el orden de las instrucciones en el cpu, sino que es producto de un proceso
 mucho mas superficial y es la traducción de la expresión `e`, que no es más que
@@ -151,17 +151,17 @@ else:
 
 """
 Lo mas impresionante de esto que hemos encontrado 2 gramaticas diferentes que analizan sintactica y lexicograficamente
-el lenguaje de las expresiones aritmeticas, pero producen arboles de ejecucion diferentes.
+el lenguaje de las expresiones aritmeticas, pero producen árboles de ejecución diferentes.
 """
 
 col1, col2 = st.columns(2)
 
 _, graph = lag_result.to_graph()
-col1.markdown("##### Arbol de ejecucion `s = 16`")
+col1.markdown("##### Arbol de ejecución `s = 16`")
 col1.graphviz_chart(graph)
 
 _, graph = rag_result.to_graph()
-col2.markdown("##### Arbol de ejecucion `s = 1`")
+col2.markdown("##### Arbol de ejecución `s = 1`")
 col2.graphviz_chart(graph)
 
 
