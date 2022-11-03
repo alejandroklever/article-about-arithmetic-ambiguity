@@ -1,4 +1,5 @@
 import streamlit as st
+
 import grammars.left_associative_grammar as lag
 import grammars.right_associative_grammar as rag
 import grammars.symbol_less_grammar as slg
@@ -6,7 +7,7 @@ import grammars.symbol_less_grammar as slg
 DEFAULT_EXPR = "8 / 2 * (2 + 2)"
 
 st.title("El ambiguo caso de ***8 / 2(2 + 2)***")
-st.subheader("Un analisis desde el punto vista sintactico")
+st.subheader("Un análisis desde el punto vista sintactico")
 
 """
 #### Introducción
@@ -22,7 +23,7 @@ y otros daban como resultado 16.
 
 Lo primero es analizar desde el punto de vista computacional donde esta el error.
 Para esto usaremos primero una version menos ambigua de la expresión original a 
-la que llamaremos `s = 8 : 2 * (2 + 2)`. Con esto en mente uno pensaría que el 
+la que llamaremos `s = 8 / 2 * (2 + 2)`. Con esto en mente uno pensaría que el 
 error se encuentra en alguna parte mal programada del proceso de calculo de los 
 propios de computo. Pero hay una parte mas superficial que sucede mucho antes de 
 que un programa se convierta en 0s y 1s en un circuito logico. Y es el proceso de 
@@ -41,8 +42,8 @@ Pero... ¿Qué es una gramática en el contexto de la programación? Una gramát
 es formalmente definida como la combinación de un conjunto de terminales
 (el vocabulario), un conjunto de no terminales (símbolos generadores),
 un símbolo no terminal inicial y un conjunto de producciones que transformen. 
-Espera, se que es mucho para procesar, pero no huyas aún. Veamos ejemplo,
-crearemos una gramática para un lenguaje de operaciones aritmeticas que
+Espera, se que es mucho para procesar, pero no huyas aún, veamos un ejemplo.
+Crearemos una gramática para un lenguaje de operaciones aritmeticas que
 solo acepte sumas, restas, multiplicaciones, divisiones y parentización,
 a la cual pertenece nuestra cadena de ejemplo `s`.
 
@@ -249,7 +250,7 @@ multiplicacion literal. Para mas info sobre como Julia hace esto puede ir a la [
 """
 ### Conclusiones
 He intentado resumir en este artículo todo una introducción muy breve y algo informal sobre es
-el analisis de los lenguajes computables con el fin de arrojar luz a los 2 planteamientos que insitaron
+el análisis de los lenguajes computables con el fin de arrojar luz a los 2 planteamientos que insitaron
 este texto:
 
 - Lo que a priori parece ser un error quizas sea el resultado de un convenio acordado porque es la mejor forma de hacer algo o bien porque es la unica forma.
