@@ -4,39 +4,42 @@ import grammars.left_associative_grammar as lag
 import grammars.right_associative_grammar as rag
 import grammars.symbol_less_grammar as slg
 
+
 DEFAULT_EXPR = "8 / 2 * (2 + 2)"
 
 st.title("El ambiguo caso de ***8 / 2(2 + 2)***")
-st.subheader("Un análisis desde el punto vista sintactico")
+st.subheader("Un análisis desde el punto vista sintáctico")
+st.caption("Por Alejandro Klever Clemente")
 
 """
 #### Introducción
 En este pequeño artículo me gustaría agregar un poco de luz 
-desde el punto de vista de programación a la ambigüedad de la
-expresión aritmética `e = 8 / 2(2 + 2)`.
+desde el punto de vista de programación a la ambigüedad del resultado
+de la expresión aritmética `e = 8 / 2 (2 + 2)`.
 
-Una de las bases en las que se han apoyado algunos detractores de
-la ambigüedad de dicha expresión fue en el propio resultado que podian
-dar los equipos de computo. Pero estos equipos de cómputo parecían tampoco
-estar muy de acuerdo entre sí, pues algunos daban como resultado 1
-y otros daban como resultado 16.
+Una confusión bastante común dado que muchos equipos de cómputo darán
+como resultado 1 al poner literalmente esta expresión en lugar de
+poner una multiplicación explícita, contradiciendo el convenio de
+resolución de operaciones de igual precedencia en el orden de aparición.
+¿Pero, por qué es esto realmente un error?
 
 Lo primero es analizar desde el punto de vista computacional donde esta el error.
-Para esto usaremos primero una version menos ambigua de la expresión original a 
-la que llamaremos `s = 8 / 2 * (2 + 2)`. Con esto en mente uno pensaría que el 
-error se encuentra en alguna parte mal programada del proceso de calculo de los 
-propios de computo. Pero hay una parte mas superficial que sucede mucho antes de 
-que un programa se convierta en 0s y 1s en un circuito logico. Y es el proceso de 
-traducir una cadena de texto como la expresión `s` a puras instrucciones 
-codificadas en 0s y 1s.
+Lo curioso es que este no es producto de una mala programación interna del circuito
+lógico que realiza las operaciones a mas bajo nivel, y tampoco a la hora de colocar
+el orden de las instrucciones en el cpu, sino que es producto de un proceso
+mucho mas superficial y es la traducción de la expresión `e`, que no es más que
+una cadena de texto, instrucciones que pueda entender un procesador.
 
-Algo que no se explica mucho en el mundo mas comun de la programación es que
+Para este análisis usaremos primero una versión menos ambigua de la expresión original a 
+la que llamaremos `s = 8 / 2 * (2 + 2)`.
+
+Algo que no se explica mucho en el mundo mas común de la programación es que
 las computadoras tienen serios probremas para enteder lenguajes, de hecho, 
-están bien definidas las reglas que debe seguir uno para este ser comprendido
-por las computadoras ¿Pero, como conseguimos analizar si un lenguaje puede o
-no cumplir estas reglas? Bueno, aqui es donde la cosa se pone interesante,
+están bien definidas las reglas que deben seguir estos para ser comprendido
+por las computadoras. Pero, ¿cómo conseguimos analizar si un lenguaje puede o
+no cumplir estas reglas? Bueno, aquí es donde la cosa se pone interesante,
 tenemos que "matematizar" el lenguaje, y esto se hace escribiendo una gramática
-que pueda generar todas las cadenas de texto de ese lenguaje.
+que pueda generar y comprender todas las cadenas de texto de ese lenguaje.
 
 Pero... ¿Qué es una gramática en el contexto de la programación? Una gramática
 es formalmente definida como la combinación de un conjunto de terminales
@@ -166,7 +169,7 @@ del lenguaje de expresiones aritmeticas.
 
 Una vez analizado como un simple cambio en la gramática puede afectar a como se ejecutan
 a la resolucion de la misma, quiero dejar una cosa en clara: Si eres porgramador, por favor, usa la primera gramática.
-Por otro lado no podemos olvidar que aqui estabamos trabajando con una expresión que usa todos los símbolos aritmeticos,
+Por otro lado no podemos olvidar que aquí estabamos trabajando con una expresión que usa todos los símbolos aritmeticos,
 ¿Que pasaría si a nuestro lenguaje le damos la posibilidad de operar omitiendo el simbolo `*`?
 Primeramente debemos cambiar la gramática con la que venimos para poder analizar expresiones del tipo `2(2 + 2)`, puesto a que nuestro lenguaje cambió...
 
