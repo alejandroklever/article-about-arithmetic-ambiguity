@@ -35,7 +35,7 @@ Lo primero es analizar desde el punto de vista computacional donde ocurre esta d
 Curiosamente esto no es producto de una mala programación interna del circuito
 lógico que realiza las operaciones a más bajo nivel, ni tampoco a la hora de colocar
 el orden de las instrucciones en el cpu, sino que es producto de un proceso
-mucho mas superficial y es la traducción de la expresión `E`, que no es más que
+mucho más superficial y es la traducción de la expresión `E`, que no es más que
 una cadena de texto, a instrucciones que pueda entender un procesador.
 
 Para este análisis usaremos primero una versión menos ambigua de la expresión original a 
