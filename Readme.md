@@ -1,6 +1,6 @@
-# Science popularization article
+# Science popularization article 
 
-Science popularization article about the ambuguity in programing languege and how the compilers can solve it.
+Popular science article on programming language ambiguity and how compilers can resolve it.
 
 This article were fully written in python using Streamlit
 
