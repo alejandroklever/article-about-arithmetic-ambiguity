@@ -35,7 +35,7 @@ Lo primero es analizar desde el punto de vista computacional donde ocurre esta d
 Curiosamente esto no es producto de una mala programación interna del circuito
 lógico que realiza las operaciones a más bajo nivel, ni tampoco a la hora de colocar
 el orden de las instrucciones en el cpu, sino que es producto de un proceso
-mucho mas superficial y es la traducción de la expresión `E`, que no es más que
+mucho más superficial y es la traducción de la expresión `E`, que no es más que
 una cadena de texto, a instrucciones que pueda entender un procesador.
 
 Para este análisis usaremos primero una versión menos ambigua de la expresión original a 
@@ -106,7 +106,7 @@ como 16.
     fact -> ( expr )
     fact -> number
 
-Como podemos obervar nuestra gramática asocia términos hacia la izquierda
+Como podemos observar nuestra gramática asocia términos hacia la izquierda
 porque definimos el no terminal más prioritario a la izquierda del operador,
 en este caso una expresión tiene mayor prioridad que un término, y un término
 tiene mayor prioridad que un factor.
@@ -274,7 +274,7 @@ st.image(
 """
 ### Conclusiones
 
-He intentado resumir en este artículo como una introducción muy breve y algo informal sobre lo es
+He intentado resumir en este artículo como una introducción muy breve y algo informal sobre lo que es
 el análisis de los lenguajes computables con el fin de arrojar luz a los 2 planteamientos que incitaron
 este texto:
 
