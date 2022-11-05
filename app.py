@@ -106,7 +106,7 @@ como 16.
     fact -> ( expr )
     fact -> number
 
-Como podemos obervar nuestra gramática asocia términos hacia la izquierda
+Como podemos observar nuestra gramática asocia términos hacia la izquierda
 porque definimos el no terminal más prioritario a la izquierda del operador,
 en este caso una expresión tiene mayor prioridad que un término, y un término
 tiene mayor prioridad que un factor.
