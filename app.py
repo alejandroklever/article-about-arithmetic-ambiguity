@@ -274,7 +274,7 @@ st.image(
 """
 ### Conclusiones
 
-He intentado resumir en este artículo como una introducción muy breve y algo informal sobre lo es
+He intentado resumir en este artículo como una introducción muy breve y algo informal sobre lo que es
 el análisis de los lenguajes computables con el fin de arrojar luz a los 2 planteamientos que incitaron
 este texto:
 
